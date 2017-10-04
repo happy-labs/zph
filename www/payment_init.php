@@ -89,13 +89,13 @@
             $transactionAmount = new TransactionAmount($paymentAmount);
             $transactionAmount->setTotalAmount($totalAmount);
             $transactionAmount->setServiceFeeAmount($serviceFeeAmount);
-            //$transactionAmount->setPaymentAmount((float) $paymentAmount);
-            $transactionAmount->setCurrency($currency);
+            $transactionAmount->setPaymentAmount((float) $paymentAmount);
+            $transactionAmount->setCurrency("LKR");//($currency);
             $initRequest->setTransactionAmount($transactionAmount);
             // sets redirect settings
             
             $redirect = new Redirect($returnUrl);
-           // $redirect->setReturnUrl($returnUrl);
+            $redirect->setReturnUrl($returnUrl);
             $redirect->setReturnMethod($returnMethod);
             $initRequest->setRedirect($redirect);
             /* ------------------------------------------------------------------------------
@@ -171,7 +171,8 @@
                                     <tr><td><b>Payment Amount</b></td><td><input type="text" readonly="readonly" name="paymentAmount" class="input-sm" value="1000" />  </td></tr> 
                                     <tr><td><b>Total Amount</b></td><td><input type="text" readonly="readonly" name="totalAmount" class="input-sm" value="0" />  </td></tr> 
                                     <tr><td><b>Service Fee Amount</b></td><td><input type="text" readonly="readonly" name="serviceFeeAmount" class="input-sm" value="0" />  </td></tr> 
-                                    <tr><td><b>Currency</b></td><td><input type="text" readonly="readonly" name="currency" class="input-sm" value="LKR" />  </td></tr> 
+
+                                    <tr><td><b>Currency</b></td><td><input type="text" name="currency" class="input-sm" value="AUD" />  </td></tr> 
 
                                     <tr><td><b>Return Method</b></td><td><input type="text" readonly="readonly" name="returnMethod" class="input-sm" value="GET" />  </td></tr>
                                     <tr><td></td><td><input type="hidden" readonly="readonly" name="returnUrl" class="input-sm" value="<?php echo $url ?>" />  </td></tr> 
