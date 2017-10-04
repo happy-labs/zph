@@ -8,27 +8,27 @@
     </head>
     <body>
         
-        <?php include '../../au.com.gateway.client/GatewayClient.php'; ?>
-        <?php include '../../au.com.gateway.client.config/ClientConfig.php'; ?>
-        <?php include '../../au.com.gateway.client.component/RequestHeader.php'; ?>
-        <?php include '../../au.com.gateway.client.component/CreditCard.php'; ?>
-        <?php include '../../au.com.gateway.client.component/TransactionAmount.php'; ?>
-        <?php include '../../au.com.gateway.client.component/Redirect.php'; ?>
-        <?php include '../../au.com.gateway.client.facade/BaseFacade.php'; ?>
-        <?php include '../../au.com.gateway.client.facade/Payment.php'; ?>
-        <?php include '../../au.com.gateway.client.root/PaycorpRequest.php'; ?>
-        <?php include '../../au.com.gateway.client.root/PaycorpResponse.php'; ?>
-        <?php include '../../au.com.gateway.client.payment/PaymentCompleteRequest.php'; ?>
-        <?php include '../../au.com.gateway.client.payment/PaymentCompleteResponse.php'; ?>
-        <?php include '../../au.com.gateway.client.utils/IJsonHelper.php'; ?>
-        <?php include '../../au.com.gateway.client.helpers/PaymentCompleteJsonHelper.php'; ?>
-        <?php include '../../au.com.gateway.client.utils/HmacUtils.php'; ?>
-        <?php include '../../au.com.gateway.client.utils/CommonUtils.php'; ?>
-        <?php include '../../au.com.gateway.client.utils/RestClient.php'; ?>
-        <?php include '../../au.com.gateway.client.enums/TransactionType.php'; ?>
-        <?php include '../../au.com.gateway.client.enums/Version.php'; ?>
-        <?php include '../../au.com.gateway.client.enums/Operation.php'; ?>
-        <?php include '../../au.com.gateway.client.facade/Vault.php'; ?>
+        <?php include 'au.com.gateway.client/GatewayClient.php'; ?>
+        <?php include 'au.com.gateway.client.config/ClientConfig.php'; ?>
+        <?php include 'au.com.gateway.client.component/RequestHeader.php'; ?>
+        <?php include 'au.com.gateway.client.component/CreditCard.php'; ?>
+        <?php include 'au.com.gateway.client.component/TransactionAmount.php'; ?>
+        <?php include 'au.com.gateway.client.component/Redirect.php'; ?>
+        <?php include 'au.com.gateway.client.facade/BaseFacade.php'; ?>
+        <?php include 'au.com.gateway.client.facade/Payment.php'; ?>
+        <?php include 'au.com.gateway.client.root/PaycorpRequest.php'; ?>
+        <?php include 'au.com.gateway.client.root/PaycorpResponse.php'; ?>
+        <?php include 'au.com.gateway.client.payment/PaymentCompleteRequest.php'; ?>
+        <?php include 'au.com.gateway.client.payment/PaymentCompleteResponse.php'; ?>
+        <?php include 'au.com.gateway.client.utils/IJsonHelper.php'; ?>
+        <?php include 'au.com.gateway.client.helpers/PaymentCompleteJsonHelper.php'; ?>
+        <?php include 'au.com.gateway.client.utils/HmacUtils.php'; ?>
+        <?php include 'au.com.gateway.client.utils/CommonUtils.php'; ?>
+        <?php include 'au.com.gateway.client.utils/RestClient.php'; ?>
+        <?php include 'au.com.gateway.client.enums/TransactionType.php'; ?>
+        <?php include 'au.com.gateway.client.enums/Version.php'; ?>
+        <?php include 'au.com.gateway.client.enums/Operation.php'; ?>
+        <?php include 'au.com.gateway.client.facade/Vault.php'; ?>
 
         <?php
         date_default_timezone_set('Asia/Colombo');

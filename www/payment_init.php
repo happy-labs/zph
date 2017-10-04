@@ -57,7 +57,7 @@
             $returnUrl = $_POST['returnUrl'];
             $returnMethod = $_POST['returnMethod'];
 
-            date_default_timezone_set('Australia/Sydney');
+            date_default_timezone_set('Asia/Colombo');
 
             /* ------------------------------------------------------------------------------
               STEP1: Build PaycorpClientConfig object
