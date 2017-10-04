@@ -35,7 +35,7 @@
 
         <?php
         
-        $url = "http://localhost:8080/paycorp-client-php/au.com.gateway.Demo/pcw4/payment_complete.php";
+        $url = "http://msc.scorelab.org:4000/paycorp-client-php/au.com.gateway.Demo/pcw4/payment_complete.php";
         $cId = "14001254"
        
         if (isset($_POST['submit'])) {
