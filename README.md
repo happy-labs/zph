@@ -12,6 +12,6 @@ In success payment app will redirects to the page `http://msc.scorelab.org:4000/
 ## build and run with docker
 
 ```
-docker build --tag erangaeb/paymentportal:0.3 .
-docker run -p 8080:8080 -d erangaeb/paymentportal:0.3
+docker build --tag erangaeb/paymentportal:0.1 .
+docker run -p 8080:8080 -d erangaeb/paymentportal:0.1
 ```
