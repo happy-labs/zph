@@ -1,0 +1,4 @@
+.DS_Store
+access.log
+error.log
+other_vhosts_access.log
