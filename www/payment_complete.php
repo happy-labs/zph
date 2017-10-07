@@ -37,6 +37,10 @@ $pgwEndPoint = getenv("PGW_END_POINT");
 $pgwAuthToken = getenv("PGW_AUTH_TOKEN");
 $pgwHmacSecret = getenv("PGW_HMAC_SECRET");
 
+$nodeServerIp = getenv("NODE_HOST") ? getenv("NODE_HOST") : "10.2.2.150";
+$nodeServerPort = getenv("NODE_PORT") ? getenv("NODE_PORT") : "4000";
+$nodeServerProtocol = getenv("NODE_PROTOCOL") ? getenv("NODE_PROTOCOL") : "http";
+
 
 date_default_timezone_set('Asia/Colombo');
 /* ------------------------------------------------------------------------------
@@ -70,11 +74,6 @@ $transactionAmount = $completeResponse->getTransactionAmount();
 
 <script type="text/javascript">
     var redirectUrl = "<?php
-
-        // Environment Variables
-        $pgwEndPoint = getenv("PGW_END_POINT");
-        $pgwAuthToken = getenv("PGW_AUTH_TOKEN");
-        $pgwHmacSecret = getenv("PGW_HMAC_SECRET");
 
         // Parse Url
         $urlParts = parse_url($_SERVER['REQUEST_URI']);
