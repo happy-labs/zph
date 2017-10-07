@@ -96,10 +96,15 @@ $transactionAmount = $completeResponse->getTransactionAmount();
         }
 
         $data = array('hash' => $query['secret']);
-        $result = httpPost($payment_url, $data);
-        $json = json_decode($result, true);
-        if($json['student_master']['registration_payment_status'] == "FULL") {
-            echo $nodeServerProtocol."://".$nodeServerIp.":".$nodeServerPort."/registration-success?secret=".$query['secret'];
+
+        if($completeResponse->getResponseCode() == "00") {
+            $result = httpPost($payment_url, $data);
+            $json = json_decode($result, true);
+            if($json['student_master']['registration_payment_status'] == "FULL") {
+                echo $nodeServerProtocol."://".$nodeServerIp.":".$nodeServerPort."/registration-success?secret=".$query['secret'];
+            } else {
+                echo $nodeServerProtocol."://".$nodeServerIp.":".$nodeServerPort."/request-error";
+            }
         } else {
             echo $nodeServerProtocol."://".$nodeServerIp.":".$nodeServerPort."/request-error";
         }
