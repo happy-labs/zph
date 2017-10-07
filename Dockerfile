@@ -35,7 +35,7 @@ ENV PGW_AUTH_TOKEN ef8aff82-bae4-4706-b3c3-87f72de2e2b9
 ENV PGW_HMAC_SECRET 77MHMnVPQEyDGspe
 
 # Expose apache.
-EXPOSE 4000
+EXPOSE 80
 
 # Copy this repo into place.
 ADD www /var/www/site
