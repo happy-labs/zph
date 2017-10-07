@@ -31,14 +31,21 @@
 <?php include 'au.com.gateway.client.facade/Vault.php'; ?>
 
 <?php
+
+// Environment Variables
+$pgwEndPoint = getenv("PGW_END_POINT") ? getenv("PGW_END_POINT") : "https://sampath.paycorp.com.au/rest/service/proxy/";
+$pgwAuthToken = getenv("PGW_AUTH_TOKEN") ? getenv("PGW_AUTH_TOKEN") : "ef8aff82-bae4-4706-b3c3-87f72de2e2b9";
+$pgwHmacSecret = getenv("PGW_HMAC_SECRET") ? getenv("PGW_HMAC_SECRET") : "77MHMnVPQEyDGspe";
+
+
 date_default_timezone_set('Asia/Colombo');
 /* ------------------------------------------------------------------------------
   STEP1: Build PaycorpClientConfig object
   ------------------------------------------------------------------------------ */
 $clientConfig = new ClientConfig();
-$clientConfig->setServiceEndpoint("https://sampath.paycorp.com.au/rest/service/proxy/");
-$clientConfig->setAuthToken("ef8aff82-bae4-4706-b3c3-87f72de2e2b9");
-$clientConfig->setHmacSecret("77MHMnVPQEyDGspe");
+$clientConfig->setServiceEndpoint($pgwEndPoint);
+$clientConfig->setAuthToken($pgwAuthToken);
+$clientConfig->setHmacSecret($pgwHmacSecret);
 
 $clientConfig->setValidateOnly(FALSE);
 /* ------------------------------------------------------------------------------
@@ -63,11 +70,6 @@ $transactionAmount = $completeResponse->getTransactionAmount();
 
 <script type="text/javascript">
     var redirectUrl = "<?php
-
-        // Environment Variables
-        $nodeServerIp = getenv("NODE_HOST") ? getenv("NODE_HOST") : "192.168.1.8";
-        $nodeServerPort = getenv("NODE_PORT") ? getenv("NODE_PORT") : "4000";
-        $nodeServerProtocol = getenv("NODE_PROTOCOL") ? getenv("NODE_PROTOCOL") : "http";
 
         // Parse Url
         $urlParts = parse_url($_SERVER['REQUEST_URI']);
