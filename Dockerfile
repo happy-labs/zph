@@ -20,8 +20,22 @@ ENV APACHE_LOG_DIR /var/log/apache2
 ENV APACHE_LOCK_DIR /var/lock/apache2
 ENV APACHE_PID_FILE /var/run/apache2.pid
 
+# Node Env Variabes
+ENV NODE_HOST msc.scorelab.org
+ENV NODE_PORT 3000
+ENV NODE_PROTOCOL http
+
+# Payment Env Variables
+ENV PGW_HOST msc.scorelab.org
+ENV PGW_PORT 4000
+ENV PGW_PROTOCOL http
+
+ENV PGW_END_POINT https://sampath.paycorp.com.au/rest/service/proxy/
+ENV PGW_AUTH_TOKEN ef8aff82-bae4-4706-b3c3-87f72de2e2b9
+ENV PGW_HMAC_SECRET 77MHMnVPQEyDGspe
+
 # Expose apache.
-EXPOSE 80
+EXPOSE 4000
 
 # Copy this repo into place.
 ADD www /var/www/site
