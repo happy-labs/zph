@@ -33,9 +33,9 @@
 <?php
 
 // Environment Variables
-$pgwEndPoint = getenv("PGW_END_POINT") ? getenv("PGW_END_POINT") : "https://sampath.paycorp.com.au/rest/service/proxy/";
-$pgwAuthToken = getenv("PGW_AUTH_TOKEN") ? getenv("PGW_AUTH_TOKEN") : "ef8aff82-bae4-4706-b3c3-87f72de2e2b9";
-$pgwHmacSecret = getenv("PGW_HMAC_SECRET") ? getenv("PGW_HMAC_SECRET") : "77MHMnVPQEyDGspe";
+$pgwEndPoint = getenv("PGW_END_POINT");
+$pgwAuthToken = getenv("PGW_AUTH_TOKEN");
+$pgwHmacSecret = getenv("PGW_HMAC_SECRET");
 
 
 date_default_timezone_set('Asia/Colombo');
@@ -70,6 +70,11 @@ $transactionAmount = $completeResponse->getTransactionAmount();
 
 <script type="text/javascript">
     var redirectUrl = "<?php
+
+        // Environment Variables
+        $pgwEndPoint = getenv("PGW_END_POINT");
+        $pgwAuthToken = getenv("PGW_AUTH_TOKEN");
+        $pgwHmacSecret = getenv("PGW_HMAC_SECRET");
 
         // Parse Url
         $urlParts = parse_url($_SERVER['REQUEST_URI']);
