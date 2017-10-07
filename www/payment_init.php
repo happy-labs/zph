@@ -44,10 +44,23 @@
 $urlParts = parse_url($_SERVER['REQUEST_URI']);
 parse_str($urlParts['query'], $query);
 
-//        $url = "http://msc.scorelab.org:4000/payment_complete.php";
+// $url = "http://msc.scorelab.org:4000/payment_complete.php";
 
-// My local php service
-$url = "http://localhost:8080/payment_complete.php" . "?secret=" . $query['secret'];
+// Environment Variables
+$nodeServerIp = getenv("NODE_HOST") ? getenv("NODE_HOST") : "10.2.2.150";
+$nodeServerPort = getenv("NODE_PORT") ? getenv("NODE_PORT") : "4000";
+$nodeServerProtocol = getenv("NODE_PROTOCOL") ? getenv("NODE_PROTOCOL") : "http";
+
+$pgwHost = getenv("PGW_HOST") ? getenv("PGW_HOST") : "192.168.1.8";
+$pgwPort = getenv("PGW_PORT") ? getenv("PGW_PORT") : "8080";
+$pgwProtocol = getenv("PGW_PROTOCOL") ? getenv("PGW_PROTOCOL") : "http";
+
+$pgwEndPoint = getenv("PGW_END_POINT") ? getenv("PGW_END_POINT") : "https://sampath.paycorp.com.au/rest/service/proxy/";
+$pgwAuthToken = getenv("PGW_AUTH_TOKEN") ? getenv("PGW_AUTH_TOKEN") : "ef8aff82-bae4-4706-b3c3-87f72de2e2b9";
+$pgwHmacSecret = getenv("PGW_HMAC_SECRET") ? getenv("PGW_HMAC_SECRET") : "77MHMnVPQEyDGspe";
+
+// Redirect Url on payment complete
+$url = $pgwProtocol."://".$pgwHost.":".$pgwPort."/payment_complete.php" . "?secret=" . $query['secret'];
 
 $operation = 'PAYMENT_INIT';
 $requestDate = date('Y-m-d H:i:s');
@@ -73,9 +86,9 @@ date_default_timezone_set('Asia/Colombo');
   STEP1: Build PaycorpClientConfig object
   ------------------------------------------------------------------------------ */
 $clientConfig = new ClientConfig();
-$clientConfig->setServiceEndpoint("https://sampath.paycorp.com.au/rest/service/proxy/");
-$clientConfig->setAuthToken("ef8aff82-bae4-4706-b3c3-87f72de2e2b9");
-$clientConfig->setHmacSecret("77MHMnVPQEyDGspe");
+$clientConfig->setServiceEndpoint($pgwEndPoint);
+$clientConfig->setAuthToken($pgwAuthToken);
+$clientConfig->setHmacSecret($pgwHmacSecret);
 $clientConfig->setValidateOnly(FALSE);
 
 /* ------------------------------------------------------------------------------

@@ -58,45 +58,51 @@ $completeResponse = $client->getPayment()->complete($completeRequest);
 
 $creditCard = $completeResponse->getCreditCard();
 $transactionAmount = $completeResponse->getTransactionAmount();
-
-// Parse Url
-$urlParts = parse_url($_SERVER['REQUEST_URI']);
-
-// Load parsed url into query object
-parse_str($urlParts['query'], $query);
-
-// Node registration success url
-$redirect_url = "Location: http://localhost:4200/registration-success?secret=" . $query['secret'];
-
-// Node server payment confirmation url
-$payment_url = 'http://10.2.2.150:4000/registration/payment/36053764d32fa15450a622dab4ac3b4b';
-
-
-function httpPost($url, $data)
-{
-    $curl = curl_init($url);
-    curl_setopt($curl, CURLOPT_POST, true);
-    echo http_build_query($data);
-    curl_setopt($curl, CURLOPT_POSTFIELDS, http_build_query($data));
-    curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-    $response = curl_exec($curl);
-    curl_close($curl);
-    return $response;
-}
-
-$data = array('hash' => $query['secret']);
-$result = httpPost($payment_url, $data);
-$json = json_decode($result, true);
-echo $json['student_master'];
-if($json['student_master']['registration_payment_status'] == "FULL") {
-    header($redirect_url);
-    die();
-} else {
-    echo "Credit card Error!!!";
-}
-
-
 ?>
+
+
+<script type="text/javascript">
+    var redirectUrl = "<?php
+
+        // Environment Variables
+        $nodeServerIp = getenv("NODE_HOST") ? getenv("NODE_HOST") : "192.168.1.8";
+        $nodeServerPort = getenv("NODE_PORT") ? getenv("NODE_PORT") : "4000";
+        $nodeServerProtocol = getenv("NODE_PROTOCOL") ? getenv("NODE_PROTOCOL") : "http";
+
+        // Parse Url
+        $urlParts = parse_url($_SERVER['REQUEST_URI']);
+
+        // Load parsed url into query object
+        parse_str($urlParts['query'], $query);
+
+        // Node server payment confirmation url
+        $payment_url = $nodeServerProtocol."://".$nodeServerIp.":".$nodeServerPort."/registration/payment/36053764d32fa15450a622dab4ac3b4b";
+
+        function httpPost($url, $data)
+        {
+            $curl = curl_init($url);
+            curl_setopt($curl, CURLOPT_POST, true);
+            curl_setopt($curl, CURLOPT_POSTFIELDS, http_build_query($data));
+            curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+            $response = curl_exec($curl);
+            curl_close($curl);
+            return $response;
+        }
+
+        $data = array('hash' => $query['secret']);
+        $result = httpPost($payment_url, $data);
+        $json = json_decode($result, true);
+        if($json['student_master']['registration_payment_status'] == "FULL") {
+            echo $nodeServerProtocol."://".$nodeServerIp.":".$nodeServerPort."/registration-success?secret=".$query['secret'];
+        } else {
+            echo $nodeServerProtocol."://".$nodeServerIp.":".$nodeServerPort."/request-error";
+        }
+    ?>"
+
+    top.window.location.href=redirectUrl;
+</script>
+
+
 <nav class="navbar navbar-default">
     <div class="container-fluid">
         <div class="navbar-header">
