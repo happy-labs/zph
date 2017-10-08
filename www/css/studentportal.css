@@ -1,0 +1,244 @@
+/* You can add global styles to this file, and also import other style files */
+h3 {
+    margin-top: 20px !important;
+    margin-bottom: 20px !important;
+}
+
+.app__header h3 {
+    margin-bottom: 10px !important;
+}
+
+app-summary-info .app__header h3 {
+    margin-top: 0 !important;
+}
+
+
+button.btn-success, button.btn-danger {
+    width: 80px !important;
+}
+
+label{
+    font-weight: 400 !important;
+}
+
+body {
+    background: #d6d6d6 !important;
+}
+
+.app-card, app-summary-info app-login-info-form > form, app-summary-info app-general-info-form > form, app-summary-info app-education-info-form > form, app-summary-info app-job-info-form > form, app-summary-info app-referee-info-form > form {
+    box-shadow: none !important;
+    padding: 0 !important;
+    margin-bottom: 0 !important;
+    margin-top: 0 !important;
+}
+
+.app-card, app-summary-info > form, app-registration-success-message > div, app-login-info-form > form, app-general-info-form > form, app-education-info-form > form, app-job-info-form > form, app-referee-info-form > form {
+    background: white !important;
+    padding: 1em 2em !important;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important;
+    border-radius: 5px !important;
+    margin: 2em 0 5em 0 !important;
+}
+
+app-login-info-form > form {
+    margin-top: calc((100vh/2) - 340px) !important;
+}
+
+.glyphicon.glyphicon-remove {
+    margin-top: 4px;
+    cursor: pointer;
+    color: red;
+}
+
+img[alt="logo"]{
+    margin-top: 15px;
+    display: none;
+}
+
+app-summary-info img[alt="logo"]{
+    margin-top: 0;
+}
+
+@media only screen and (min-width: 580px) {
+    img[alt="logo"]{
+        display: inline !important;
+    }
+}
+
+.app__header__title {
+    text-align: center;
+    font-weight: 500;
+    margin: 10px 0;
+    line-height: 3em;
+}
+
+.app__header__title span {
+    border-bottom: 1px solid grey;
+    padding-bottom: 5px;
+    text-transform: capitalize;
+    font-size: 20px;
+    font-weight: 700;
+    font-variant-caps: all-small-caps;
+}
+
+.help__text{
+    vertical-align: text-bottom;
+    font-style: oblique;
+    color: blue;
+    font-size: 11px;
+}
+
+textarea.ng-invalid.ng-touched, select.ng-invalid.ng-touched, input.ng-invalid.ng-touched {
+    border: 1px solid red !important;
+}
+
+textarea.ng-valid.ng-touched, select.ng-valid.ng-touched, input.ng-valid.ng-touched {
+    border: 1px solid green !important;
+}
+
+.help-block{
+    color: red !important;
+}
+
+.success__message_panel{
+    text-align: center;
+}
+
+.success__message_panel__text > div {
+    line-height: 2em;
+}
+
+app-summary-info  select{
+    -webkit-appearance: none !important;
+    -moz-appearance: none !important;
+    text-indent: 1px !important;
+    text-overflow: '' !important;
+}
+
+app-summary-info  textarea {
+    resize: none;
+}
+
+app-summary-info input, app-summary-info textarea , app-summary-info select {
+    border: none !important;
+    background: transparent !important;
+    border-bottom: 1px solid grey !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    cursor: default  !important;
+}
+
+.not-print{
+    display: block;
+}
+
+.print{
+    display: none;
+}
+
+app-summary-info .download-save-btn{
+    width: 100% !important;
+    margin-bottom: 2em !important;
+}
+
+@page { size:8.5in 11in; margin: 2cm }
+
+@media print {
+
+    app-summary-info .download-save-btn{
+        display: none;
+    }
+
+    app-summary-info > form {
+        box-shadow: none !important;
+    }
+
+    .print{
+        display: block;
+    }
+
+    .not-print{
+        display: none;
+    }
+
+    .print-header{
+        text-align: center;
+        margin: 1em 0 3em 0;
+    }
+
+    .page-break  {
+        page-break-after: always;
+    }
+
+    select::-ms-expand {
+        display: none !important;
+    }
+
+    select {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        text-indent: 1px;
+        text-overflow: '';
+    }
+
+    .panel.panel-default {
+        page-break-after: always;
+        border: 1px solid grey;
+    }
+
+    .panel-heading{
+        padding: 20px 10px;
+        font-size: 16px;
+        font-weight: 500;
+    }
+
+}
+
+
+.declaration-box{
+    padding: 2em;
+    border: 1px solid grey;
+}
+
+.declaration-header{
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.declaration-content{
+    text-transform: uppercase;
+    text-align: justify;
+}
+
+.print-confirmation-check-box{
+    text-transform: uppercase;
+}
+
+.print-confirmation-check-box:before{
+    content: "";
+    width: 25px;
+    display: inline-block;
+    border: 1px solid grey;
+    height: 25px;
+    margin-right: 1em;
+    vertical-align: middle;
+}
+
+.declaration-footer{
+    display: flex;
+    text-align: center;
+}
+
+.declaration-footer div:nth-child(2){
+    flex: 1;
+}
+
+.declaration-footer div:nth-child(1), .declaration-footer div:nth-child(3) {
+    flex: 2;
+    border-top: 1px solid grey;
+    padding: 1em 0;
+}
+
+button.btn-success.auto-size-btn{
+    width: auto !important;
+}

@@ -21,13 +21,13 @@ ENV APACHE_LOCK_DIR /var/lock/apache2
 ENV APACHE_PID_FILE /var/run/apache2.pid
 
 # Node Env Variabes
-ENV NODE_HOST msc.scorelab.org
-ENV NODE_PORT 80
+ENV NODE_HOST 10.2.2.150
+ENV NODE_PORT 4000
 ENV NODE_PROTOCOL http
 
 # Payment Env Variables
-ENV PGW_HOST pay.scorelab.org
-ENV PGW_PORT 80
+ENV PGW_HOST 10.2.2.150
+ENV PGW_PORT 8080
 ENV PGW_PROTOCOL http
 
 ENV PGW_END_POINT https://sampath.paycorp.com.au/rest/service/proxy/
