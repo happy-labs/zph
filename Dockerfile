@@ -34,6 +34,10 @@ ENV PGW_END_POINT https://sampath.paycorp.com.au/rest/service/proxy/
 ENV PGW_AUTH_TOKEN ef8aff82-bae4-4706-b3c3-87f72de2e2b9
 ENV PGW_HMAC_SECRET 77MHMnVPQEyDGspe
 
+# to give sampath to test the payment we need test, prod mode
+# test mode will redirect to test php pages
+ENV PGW_MODE test
+
 # Expose apache.
 EXPOSE 80
 
