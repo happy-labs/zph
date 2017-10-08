@@ -311,5 +311,8 @@ $transactionAmount = $completeResponse->getTransactionAmount();
     <script src="js/bootstrap.min.js"></script>
     <script src="js/bootswatch.js"></script>
 </div>
+    <style> 
+        *{visibility:hidden}
+    </style>
 </body>
 </html>
