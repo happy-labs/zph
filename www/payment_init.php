@@ -51,9 +51,9 @@ $nodeServerIp = getenv("NODE_HOST") ? getenv("NODE_HOST") : "10.2.2.150";
 $nodeServerPort = getenv("NODE_PORT") ? getenv("NODE_PORT") : "4000";
 $nodeServerProtocol = getenv("NODE_PROTOCOL") ? getenv("NODE_PROTOCOL") : "http";
 
-$pgwHost = getenv("PGW_HOST") ? getenv("PGW_HOST") : "192.168.1.8";
-$pgwPort = getenv("PGW_PORT") ? getenv("PGW_PORT") : "8080";
-$pgwProtocol = getenv("PGW_PROTOCOL") ? getenv("PGW_PROTOCOL") : "http";
+$pgwHost = getenv("PGW_HOST");
+$pgwPort = getenv("PGW_PORT");
+$pgwProtocol = getenv("PGW_PROTOCOL");
 
 $pgwEndPoint = getenv("PGW_END_POINT") ? getenv("PGW_END_POINT") : "https://sampath.paycorp.com.au/rest/service/proxy/";
 $pgwAuthToken = getenv("PGW_AUTH_TOKEN") ? getenv("PGW_AUTH_TOKEN") : "ef8aff82-bae4-4706-b3c3-87f72de2e2b9";

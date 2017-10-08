@@ -37,6 +37,12 @@ $pgwEndPoint = getenv("PGW_END_POINT");
 $pgwAuthToken = getenv("PGW_AUTH_TOKEN");
 $pgwHmacSecret = getenv("PGW_HMAC_SECRET");
 
+$pgwHost = getenv("PGW_HOST");
+$pgwPort = getenv("PGW_PORT");
+$pgwProtocol = getenv("PGW_PROTOCOL");
+
+$pgwMode = getenv("PGW_MODE");
+
 $nodeServerIp = getenv("NODE_HOST") ? getenv("NODE_HOST") : "10.2.2.150";
 $nodeServerPort = getenv("NODE_PORT") ? getenv("NODE_PORT") : "4000";
 $nodeServerProtocol = getenv("NODE_PROTOCOL") ? getenv("NODE_PROTOCOL") : "http";
@@ -75,42 +81,61 @@ $transactionAmount = $completeResponse->getTransactionAmount();
 <script type="text/javascript">
     var redirectUrl = "<?php
 
-        // Parse Url
-        $urlParts = parse_url($_SERVER['REQUEST_URI']);
+        if ($pgwMode != "test") {
 
-        // Load parsed url into query object
-        parse_str($urlParts['query'], $query);
+            // Production Mode
 
-        // Node server payment confirmation url
-        $payment_url = $nodeServerProtocol."://".$nodeServerIp.":".$nodeServerPort."/registration/payment/36053764d32fa15450a622dab4ac3b4b";
+            // Parse Url
+            $urlParts = parse_url($_SERVER['REQUEST_URI']);
 
-        function httpPost($url, $data)
-        {
-            $curl = curl_init($url);
-            curl_setopt($curl, CURLOPT_POST, true);
-            curl_setopt($curl, CURLOPT_POSTFIELDS, http_build_query($data));
-            curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-            $response = curl_exec($curl);
-            curl_close($curl);
-            return $response;
-        }
+            // Load parsed url into query object
+            parse_str($urlParts['query'], $query);
 
-        $data = array('hash' => $query['secret']);
+            // Node server payment confirmation url
+            $payment_url = $nodeServerProtocol . "://" . $nodeServerIp . ":" . $nodeServerPort . "/registration/payment/36053764d32fa15450a622dab4ac3b4b";
 
-        if($completeResponse->getResponseCode() == "00") {
-            $result = httpPost($payment_url, $data);
-            $json = json_decode($result, true);
-            if($json['student_master']['registration_payment_status'] == "FULL") {
-                echo $nodeServerProtocol."://".$nodeServerIp.":".$nodeServerPort."/registration-success?secret=".$query['secret'];
-            } else {
-                echo $nodeServerProtocol."://".$nodeServerIp.":".$nodeServerPort."/request-error";
+            function httpPost($url, $data)
+            {
+                $curl = curl_init($url);
+                curl_setopt($curl, CURLOPT_POST, true);
+                curl_setopt($curl, CURLOPT_POSTFIELDS, http_build_query($data));
+                curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+                $response = curl_exec($curl);
+                curl_close($curl);
+                return $response;
             }
-        } else {
-            echo $nodeServerProtocol."://".$nodeServerIp.":".$nodeServerPort."/request-error";
-        }
-    ?>"
 
-    top.window.location.href=redirectUrl;
+            $data = array('hash' => $query['secret']);
+
+            if ($completeResponse->getResponseCode() == "00") {
+                $result = httpPost($payment_url, $data);
+                $json = json_decode($result, true);
+                if ($json['student_master']['registration_payment_status'] == "FULL") {
+                    echo $nodeServerProtocol . "://" . $nodeServerIp . ":" . $nodeServerPort . "/registration-success?secret=" . $query['secret'];
+                } else {
+                    echo $nodeServerProtocol . "://" . $nodeServerIp . ":" . $nodeServerPort . "/request-error";
+                }
+            } else {
+                echo $nodeServerProtocol . "://" . $nodeServerIp . ":" . $nodeServerPort . "/request-error";
+            }
+
+
+        } else {
+
+            // Test Mode
+            if ($completeResponse->getResponseCode() == "00") {
+                // Call Success
+                echo $pgwProtocol . "://" . $pgwHost . ":" . $pgwPort . "/payment_success.php";
+            } else {
+                // Call Fail
+                echo $pgwProtocol . "://" . $pgwHost . ":" . $pgwPort . "/payment_fail.php";
+            }
+
+        }
+
+        ?>"
+
+    top.window.location.href = redirectUrl;
 </script>
 
 
