@@ -1,7 +1,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Payment Complete Response -demo</title>
+    <title>Payment Complete Response</title>
     <link rel="stylesheet" href="css/bootstrap.css" media="screen">
     <link rel="stylesheet" href="css/bootswatch.min.css">
     <link rel="stylesheet" href="css/studentportal.css">
@@ -21,6 +21,20 @@
 
         .red {
             color: red !important;
+        }
+
+        .print{
+            display: none;
+        }
+
+        @media print {
+            btn, .not-print {
+                display: none !important;
+            }
+
+            .print{
+                display: block !important;
+            }
         }
     </style>
 </head>
@@ -51,6 +65,7 @@
 <?php
 
 $responseSuccessCode = "00";
+$redirectUrl = "";
 
 // Environment Variables
 $pgwEndPoint = getenv("PGW_END_POINT");
@@ -119,6 +134,8 @@ function httpPost($url, $data)
 <script type="text/javascript">
     var redirectUrl = "<?php
 
+
+
         if ($query['secret'] != "") {
             // Production Mode
 
@@ -133,25 +150,19 @@ function httpPost($url, $data)
                 $result = httpPost($payment_url, $data);
                 $json = json_decode($result, true);
                 if ($json['student_master']['registration_payment_status'] == "FULL") {
-                    echo $nodeServerProtocol . "://" . $nodeServerIp . ":" . $nodeServerPort . "/registration-success?secret=" . $query['secret'];
+                    $redirectUrl = $nodeServerProtocol . "://" . $nodeServerIp . ":" . $nodeServerPort . "/summary?secret=" . $query['secret'];
                 } else {
-                    echo $nodeServerProtocol . "://" . $nodeServerIp . ":" . $nodeServerPort . "/request-error";
+                    $redirectUrl = $nodeServerProtocol . "://" . $nodeServerIp . ":" . $nodeServerPort . "/request-error";
                 }
             } else {
-                echo $nodeServerProtocol . "://" . $nodeServerIp . ":" . $nodeServerPort . "/request-error";
+                $redirectUrl = $nodeServerProtocol . "://" . $nodeServerIp . ":" . $nodeServerPort . "/request-error";
             }
 
 
         } else {
 
             // Test Mode
-            if ($responseCode == $responseSuccessCode) {
-                // Call Success
-                echo $pgwProtocol . "://" . $pgwHost . ":" . $pgwPort . "/payment_success.php";
-            } else {
-                // Call Fail
-                echo $pgwProtocol . "://" . $pgwHost . ":" . $pgwPort . "/payment_fail.php";
-            }
+            $redirectUrl = $nodeServerProtocol . "://" . $nodeServerIp . ":" . $nodeServerPort;
 
         }
 
@@ -167,8 +178,9 @@ function httpPost($url, $data)
             <div class="app-card">
                 <div class="app__header">
                     <div class="pull-left">
-                        <h3>Payment Status</h3>
-                        <span><strong class="<?php
+                        <h3 class="not-print">Payment Status</h3>
+                        <h3 class="print">Masters Registration Payment Receipt</h3>
+                        <span><strong class="not-print <?php
                             if ($responseCode == $responseSuccessCode) {
                                 echo "green";
                             } else {
@@ -237,7 +249,8 @@ function httpPost($url, $data)
 
 
                 <hr>
-                <div>
+                <div class="not-print">
+                    <button class="btn btn-primary pull-left" type="button" id="printBtn">Print</button>
                     <button class="btn btn-primary pull-right" type="button" id="actionBtn"><?php
                         if ($responseCode == $responseSuccessCode) {
                             echo "Done";
@@ -254,10 +267,15 @@ function httpPost($url, $data)
 </div>
 <br/>
 <script>
-    document.getElementById("actionBtn").addEventListener("click", function(){
+    document.getElementById("actionBtn").addEventListener("click", function () {
+
         window.location.href = "<?php
-            echo $nodeServerProtocol . "://" . $nodeServerIp . ":" . $nodeServerPort;
-        ?>";
+            echo $redirectUrl;
+            ?>";
+    }, false);
+
+    document.getElementById("printBtn").addEventListener("click", function () {
+        window.print()
     }, false);
 </script>
 </body>
