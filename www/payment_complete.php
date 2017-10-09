@@ -145,7 +145,7 @@ function httpPost($url, $data)
             if ($responseCode == $responseSuccessCode) {
 
                 $transId = $completeResponse->getTxnReference();
-                $amount = $transactionAmount->getPaymentAmount();
+                $amount = (float)($transactionAmount->getPaymentAmount() /100);
                 $data = array('hash' => $query['secret'], 'transactionId' => $transId, 'timestamp' => time(), 'amount' => $amount);
                 $result = httpPost($payment_url, $data);
                 $json = json_decode($result, true);
