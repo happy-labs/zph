@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d2c1c5d9-bc64-48c1-b78c-0f6b8597d1a2" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/payment_complete.php" afterPath="$PROJECT_DIR$/www/payment_complete.php" />
     </list>
     <ignored path="zph.iws" />
@@ -77,9 +76,11 @@
       <file leaf-file-name="payment_complete.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/www/payment_complete.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="148">
-              <caret line="138" column="41" selection-start-line="138" selection-start-column="41" selection-end-line="138" selection-end-column="41" />
-              <folding />
+            <state relative-caret-position="294">
+              <caret line="225" column="104" selection-start-line="225" selection-start-column="104" selection-end-line="225" selection-end-column="104" />
+              <folding>
+                <marker date="1507530589000" expanded="true" signature="19007:19195" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -87,8 +88,8 @@
       <file leaf-file-name="payment_init.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/www/payment_init.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-261">
-              <caret line="84" column="45" selection-start-line="84" selection-start-column="45" selection-end-line="84" selection-end-column="45" />
+            <state relative-caret-position="354">
+              <caret line="71" column="17" selection-start-line="71" selection-start-column="17" selection-end-line="71" selection-end-column="24" />
               <folding />
             </state>
           </provider>
@@ -760,12 +761,12 @@
       <workItem from="1507132425558" duration="159000" />
       <workItem from="1507132609883" duration="20856000" />
       <workItem from="1507237960517" duration="2296000" />
-      <workItem from="1507524277293" duration="746000" />
+      <workItem from="1507524277293" duration="1199000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="24057000" />
+    <option name="totallyTimeSpent" value="24510000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="6" />
@@ -782,7 +783,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32891566" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24964234" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.102288984" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -857,7 +858,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <marker date="1507530589000" expanded="true" signature="19007:19195" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -913,7 +916,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <marker date="1507530589000" expanded="true" signature="19007:19195" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -953,7 +958,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <marker date="1507530589000" expanded="true" signature="19007:19195" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1021,17 +1028,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/www/payment_init.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-261">
-          <caret line="84" column="45" selection-start-line="84" selection-start-column="45" selection-end-line="84" selection-end-column="45" />
+        <state relative-caret-position="354">
+          <caret line="71" column="17" selection-start-line="71" selection-start-column="17" selection-end-line="71" selection-end-column="24" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/www/payment_complete.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="148">
-          <caret line="138" column="41" selection-start-line="138" selection-start-column="41" selection-end-line="138" selection-end-column="41" />
-          <folding />
+        <state relative-caret-position="294">
+          <caret line="225" column="104" selection-start-line="225" selection-start-column="104" selection-end-line="225" selection-end-column="104" />
+          <folding>
+            <marker date="1507530589000" expanded="true" signature="19007:19195" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>

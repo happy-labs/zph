@@ -223,7 +223,7 @@ function httpPost($url, $data)
 
                         <tr>
                             <td><b>Payment Amount</b></td>
-                            <td><?php echo($transactionAmount->getPaymentAmount() . " (" . $transactionAmount->getCurrency() . ")") ?>
+                            <td><?php echo((float)($transactionAmount->getPaymentAmount() /100) . " (" . $transactionAmount->getCurrency() . ")") ?>
                             </td>
                         </tr>
 
