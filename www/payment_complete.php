@@ -136,7 +136,7 @@ function httpPost($url, $data)
 
 
 
-        if ($query['secret'] != "") {
+        if ($query['secret'] != "test") {
             // Production Mode
 
             // Node server payment confirmation url
